@@ -1,0 +1,1038 @@
+body{
+  width: 100%;
+  margin: 0 auto;
+  font-size: 15px;
+  /* font-family: "ヒラギノ丸ゴ Pro W4", "YuGothic", "Yu Gothic", "ヒラギノ角ゴシック","Verdana","Helvetica", sans-serif; */
+  font-family: "Verdana","Helvetica","ヒラギノ丸ゴ Pro", "メイリオ","ヒラギノ角ゴシック", sans-serif;
+
+  background: #FC997C;
+  color: gray;
+
+  position: relative;
+  /* transition: 1s; */
+
+}
+.body-wrapper{
+  overflow: hidden;
+}
+
+footer{
+
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-box-pack: center;
+
+  -webkit-box-align: center;
+
+}
+
+
+
+/* 大枠 ---------------------------------------------------- */
+.outer-wrapper{
+  display: flex;
+  justify-content: center;
+  background: #EFEFEF;
+}
+
+/* コンテンツ領域 */
+.wrapper{
+  width: 80%;
+}
+.about-container, .skill-container, .work-container{
+  height: 100vh;
+}
+
+
+/* 共通オートアニメーション ------------------------------------ */
+/* テキストイン */
+.text-in{
+  animation: text-slidein 0.8s;
+  opacity: 1;
+  animation-fill-mode: forwards;
+
+}
+@keyframes text-slidein {
+  0%{
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* セクションタイトルイン */
+.title-in{
+  opacity: 1;
+  animation: emerge-in 0.7s;
+  animation-fill-mode: forwards;
+}
+@keyframes emerge-in {
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.about-section-title, .about-text-box p, .profile-image, .profile-text-box td,
+.career-index-box h3, .profile-career-box h4, .profile-career-box p, .round-icon,
+.skill-text-box p, .work-text-box p, .work-image,.chart-text-box p,
+.profile-section-title, .skill-section-title, .work-section-title,
+header, .anime-button, .main-container p, .arrow-fluffy{
+  opacity: 0;
+}
+
+
+
+
+
+/* ヘッダー　--------------------------------------------- */
+header{
+  position: absolute;
+  right: 0;
+  position: fixed;
+  z-index: 1;
+}
+.pc-nav-container{
+  margin: 40px;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+.nav-list a{
+  text-decoration: none;
+  font-size: 14px;
+  color: gray;
+}
+
+/* JS　追加クラス */
+.active-link{
+  width: 0;
+  border-bottom: 1px solid;
+}
+
+
+
+
+/* メイントップ　--------------------------------------------- */
+main{
+  height: 100vh;
+  position: relative;
+}
+.main-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* 部品 */
+.main-title{
+  font-size: 110px;
+  color: #DADDFC;
+  transition: 1s;
+  opacity: 0;
+  margin: 40px 0;
+}
+.anime-button{
+  border: none;
+  padding: 8px 30px;
+  background: #fff;
+  border-radius: 20px;
+  font-size: 20px;
+}
+.arrow-fluffy{
+  margin: 15px 0;
+}
+.arrow{
+  border-top: solid 3px gray;
+  border-left: solid 3px gray;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  display: block;
+}
+
+
+/* ****アニメーション**** */
+/* 矢印ふわふわ */
+.arrow-fluffy{
+  animation: 2s fluffy infinite;
+}
+@keyframes fluffy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+/* バブルアニメーション */
+.bubble{
+  position: fixed;
+  border-radius: 60px 20px 50px 30px/ 40px 30px 60px 50px;
+  background: #097366;
+  z-index: -99;
+  opacity: 0.2;
+
+  transition: background 1s;
+}
+
+/* try it click アニメ */
+/* .bg-change{
+  background: #94B49F;
+  transition: 1s;
+} */
+.bg-change{
+  background: #94B49F;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+.title-color-change{
+  color: #D6D5A8;
+  transition: 1s;
+
+  animation-name: title-transform;
+  animation-duration: 1.5s;
+}
+@keyframes title-transform {
+  0%{
+    transform: translateY(0%);
+  }
+  50%{
+    transform: translateY(-450%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+.bubble-color-change{
+  background: #E9D5CA;
+}
+
+
+/* loadアニメ */
+.load-anime{
+  opacity: 1;
+  animation-name: load;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes load {
+  0%{
+    opacity: 0;
+    transform: scale(1);
+  }
+  50%{
+    opacity: 0.5;
+    transform: scale(4);
+  }
+  100%{
+    opacity: 1;
+    transform: scale();
+
+  }
+}
+
+
+
+
+/* アバウト　--------------------------------------------- */
+.about-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+
+  position: relative;
+}
+
+/* 部品 */
+.about-section-title{
+  font-size: 35px;
+  margin: 10px 0;
+  color: #F66B0E;
+}
+
+.about-line-left{
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #F66B0E;
+  width: 0;
+}
+.about-line-right{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #F66B0E;
+  width: 0;
+}
+
+
+/* ****アニメーション　イン**** */
+/* ライン */
+.about-line-in{
+  width: 100%;
+  animation-fill-mode: forwards;
+  animation-name: aboutline;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes aboutline {
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 100%;
+  }
+}
+
+
+
+/* プロフィール　--------------------------------------------- */
+.profile-container{
+  display: flex;
+  justify-content: center;
+}
+.profile-box{
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+/* ~~~~~ 左　コンテンツレイアウト ~~~~~ */
+.profile-detail-box{
+  width: 100%;
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-img-box{
+  display: flex;
+  justify-content: center;
+}
+
+
+/* 部品 */
+.profile-section-title{
+  font-size: 170px;
+  margin: 0;
+  color: #F66B0E;
+}
+.profile-text-box table{
+  margin: 20px 0;
+}
+.profile-text-box td:first-child{
+  padding-right: 35px;
+}
+.profile-image{
+  width: 200px;
+  height: 200px;
+}
+
+
+/* ~~~~~ 右　コンテンツレイアウト ~~~~~ */
+.profile-career-box{
+  width: 100%;
+  margin: 0 20px;
+  display: flex;
+}
+
+/* 部品 */
+.career-border{
+  border: 1px solid lightgray;
+  height: 0;
+}
+.profile-career-box dl{
+  padding-left: 20px;
+  position: relative;
+}
+.profile-career-box dd{
+  margin: 0;
+}
+.career-index-box{
+  display: flex;
+  align-items: center;
+}
+.career-index-box h3{
+  margin: 15px 0;
+  font-size: 25px;
+  color: #F66B0E;
+}
+.profile-career-box h4{
+  font-size: 18px;
+}
+.profile-career-box p{
+  margin: 8px 0;
+}
+.round-icon{
+  width: 16px;
+  height: 16px;
+  border-radius: 15px;
+  background: #C0D8C0;
+  display: inline-block;
+
+  position: absolute;
+  left: -9px;
+
+}
+
+
+
+
+/* ****アニメーション　イン**** */
+.career-border-in{
+  animation: border-in 0.8s;
+  opacity: 1;
+  height: 100%;
+  animation-fill-mode: forwards;
+}
+@keyframes border-in {
+  0%{
+    height: 0;
+    opacity: 0;
+  }
+  100%{
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+
+
+/* スキル　--------------------------------------------- */
+.skill-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skill-box{
+  display: flex;
+  width: 80%;
+}
+.skill-explanation-box, .skill-chart-box{
+  width: 100%;
+  margin: 0 20px;
+}
+
+
+/* ~~~~~ 左　コンテンツレイアウト ~~~~~ */
+.skill-explanation-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.skill-text-box{
+  width: 80%;
+}
+
+/* 部品 */
+.skill-section-title{
+  font-size: 170px;
+  margin: 0;
+  color: #F66B0E;
+}
+
+
+
+/* ~~~~~ 右　コンテンツレイアウト ~~~~~ */
+.skill-chart-inner{
+  display: flex;
+  flex-direction: column;
+}
+
+/* チャート枠・text部品 */
+.chart-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.chart-box{
+  display: flex;
+  flex-direction: column;
+}
+.chart-text-box{
+  display: flex;
+}
+.chart-index-box h3{
+  font-size: 25px;
+  color: #F66B0E;
+  margin: 5px 0;
+
+}
+.chart-text-box p{
+  margin: 5px 0;
+  font-size: 13px;
+  width: 100%;
+  /* opacity: 0; */
+}
+.chart-text-box p:last-child{
+  text-align: right;
+}
+
+/* チャートライン部品 */
+.chart-bg-line{
+  width: 100%;
+  height: 15px;
+  display: block;
+  background: #fff;
+  border-radius: 10px;
+}
+.chart-line{
+  height: 15px;
+  display: block;
+  background: #C0D8C0;
+  border-radius: 10px 0 0 10px;
+  opacity: 0;
+
+}
+
+
+/* ****アニメーション　イン**** */
+/* チャートライン */
+.chart-line-in{
+  animation-name: chartline;
+  animation-duration: 0.9s;
+  opacity: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes chartline {
+  0%{
+    width: 0;
+  }
+}
+
+
+
+
+/* ワーク　--------------------------------------------- */
+.work-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+.work-box{
+  display: flex;
+  width: 80%;
+  justify-content: center;
+}
+
+/* ~~~~~ 左　コンテンツレイアウト ~~~~~ */
+.work-explanation-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  align-items: center;
+}
+.work-text-box{
+  width: 80%;
+}
+
+/* 部品 */
+.work-section-title{
+  font-size: 160px;
+  margin: 0;
+  color: #F66B0E;
+}
+
+
+
+/* ~~~~~ 右　コンテンツレイアウト ~~~~~ */
+.work-modal-box{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+/* 部品 */
+.work-image{
+  width: 380px;
+  height: 250px;
+  box-shadow: 0px 5px 8px 0px lightgray;
+}
+.modal-button{
+  border: none;
+  padding: 0;
+
+  transform: translateY(0);
+  transition: 0.5s;
+}
+
+
+
+
+
+
+/* ワーク　モーダル　--------------------------------------------- */
+.modal-container{
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 14, 31, 0.4);
+  position: fixed;
+  top:0;
+  justify-content: center;
+  align-items: center;
+
+  animation-name: modal-in;
+  animation-duration: 0.8s;
+
+}
+.modal-box{
+  width: 70%;
+  height: fit-content;
+  padding: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transform: translateY(0%);
+  animation-fill-mode: forwards;
+  animation-name: modal-content-in;
+  animation-duration: 0.8s;
+
+}
+.modal-header{
+  width: 100%;
+}
+.modal-body{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.modal-text-box{
+  width: 100%;
+}
+.modal-image-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* モーダルbody　部品 */
+.modal-body h2{
+  margin: 8px 0;
+  color: #F66B0E;
+}
+.modal-body p{
+  margin: 0;
+  color: gray;
+}
+.image-scroll-box{
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  overflow-y: scroll;
+}
+.image-scroll-box img{
+  width: 350px;
+  height: 250px;
+  margin: 20px 40px;
+}
+
+
+/* 部品 */
+.modal-close-button{
+  height: 35px;
+  /* position: relative; */
+  width: 30px;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+.close-left{
+  border: 1px solid #000;
+  width: 20px;
+  display: block;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 20px;
+  left: 5px;
+}
+.close-right{
+  border: 1px solid #000;
+  width: 20px;
+  display: block;
+  transform: rotate(135deg);
+  position: relative;
+  top: 20px;
+  left: 5px;
+
+}
+
+
+/* ****アニメーション　イン**** */
+@keyframes modal-in {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes modal-content-in {
+  0%{
+    transform: translateY(-130%);
+  }
+  100%{
+    transform: translateY(0%);
+  }
+}
+
+
+
+/* safari */
+_:lang(x)+_:-webkit-full-screen-document, footer {
+
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+/* レスポンシブ --------------------------------------------- */
+/* PC最小〜 */
+@media screen and (min-width: 1024px){
+
+  .mobile-nav, .mobile-nav-container{
+    display: none;
+  }
+  /* ****ちょいアニメーション　**** */
+  .modal-button:hover{
+    transform: translateY(-5px);
+  }
+
+
+}
+
+
+/* 〜タブレット最大　以下 -------------------------------------------- */
+@media screen and (max-width: 1023px){
+
+
+  .outer-wrapper, .wrapper{
+    width: 100vw;
+  }
+  .profile-box, .skill-box, .work-box{
+    flex-direction: column;
+  }
+  .about-box, .profile-box, .skill-box, .work-box{
+    width: 85%;
+  }
+  .skill-explanation-box, .skill-chart-box,.profile-detail-box,
+  .profile-career-box,.work-explanation-box, .work-modal-box{
+    margin: 0;
+  }
+
+
+  /* ナビ ------------------------------------ */
+  .pc-nav, .pc-nav-container{
+    display: none;
+  }
+
+  /* 大枠 */
+  header {
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+  }
+  .mobile-nav-container{
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* 部品 */
+  /* .mobile-nav-box{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 14, 31, 0.4);
+    backdrop-filter: blur( 8px );
+
+    transform: translateX(100%);
+    opacity: 0;
+    transition: 0.7s;
+  } */
+  .mobile-nav-box{
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    /* height: 100vh; */
+    background: rgba(15, 14, 31, 0.4);
+    -webkit-backdrop-filter: blur( 8px );
+            backdrop-filter: blur( 8px );
+
+    -webkit-transform: translateX(100%);
+
+        -ms-transform: translateX(100%);
+
+            transform: translateX(100%);
+    opacity: 0;
+    -webkit-transition: 0.7s;
+    -o-transition: 0.7s;
+    transition: 0.7s;
+  }
+
+  .nav-list{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .nav-list li{
+    padding: 10px 0;
+  }
+  .nav-list a{
+    color: #fff;
+    font-size: 20px;
+  }
+  .nav-close-button{
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    right: 10px;
+    top: 5px;
+  }
+
+  /* クローズボタン　部品 */
+  .nav-close-button .close-left, .nav-close-button .close-right{
+    border-color: #fff;
+  }
+
+
+  /* navicon 部品 */
+  .nav-icon-box{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    margin: 10px;
+    top: -3px;
+  }
+  .nav-icon-box span{
+    display: block;
+    border: 1px solid gray;
+    width: 15px;
+    margin: 10px 0;
+  }
+  .nav-icon-1{
+    position: absolute;
+    right: 5px;
+    top: 0;
+  }
+  .nav-icon-2{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  .nav-icon-3{
+    position: absolute;
+    right: 5px;
+    top: 20px;
+  }
+
+
+  /* ****アニメーション　イン**** */
+  /* .mobile-nav-bg-in{
+    background: rgba(243, 125, 15, 0.49);
+    backdrop-filter: blur( 3px );
+    opacity: 1;
+
+    animation-name: nav-bg;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  } */
+  .mobile-nav-bg-in {
+    background: rgba(243, 125, 15, 0.49);
+    -webkit-backdrop-filter: blur( 3px );
+            backdrop-filter: blur( 3px );
+    opacity: 1;
+    -webkit-animation-name: nav-bg;
+            animation-name: nav-bg;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+  }
+  @keyframes nav-bg {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+  .mobile-nav-toggle{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .nav-icon-box-toggle{
+    opacity: 0;
+  }
+
+
+
+  /* main ------------------------------------ */
+  .main-container h1{
+    font-size: 100px;
+  }
+
+  /* profile ------------------------------------ */
+  .profile-image{
+    width: 300px;
+    height: 300px;
+  }
+
+  /* work ------------------------------------ */
+  .work-image{
+    width: 360px;
+    height: 230px;
+    /* margin: 40px; */
+  }
+
+  /* モーダル ------------------------------------　*/
+
+  .modal-box{
+    overflow: scroll;
+  }
+  .modal-body{
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+  }
+  .image-scroll-box {
+    flex-direction: row;
+    width: 400px;
+    height: 300px;
+    overflow-x: scroll;
+    align-items: center;
+  }
+  .image-scroll-box img{
+    width: 350px;
+    height: 240px;
+    margin: 20px;
+  }
+  .modal-image-box{
+    justify-content: center;
+  }
+
+
+}
+
+
+
+/* 〜スマホ最大 --------------------------------------------- */
+@media screen and (max-width: 599px){
+
+  .skill-container, .work-container{
+    height: auto;
+  }
+  .skill-box, .work-box{
+    margin: 30px 0;
+  }
+  .profile-title-box, .skill-title-box, .work-title-box {
+    width: 300px;
+    height: 180px;
+  }
+  .profile-section-title, .skill-section-title{
+    font-size: 120px;
+    opacity: 0;
+  }
+  .work-section-title{
+    font-size: 100px;
+    opacity: 0;
+  }
+
+
+  /* 部品 */
+  .main-container h1{
+    font-size: 45px;
+  }
+  .anime-button{
+    padding: 6px 20px;
+    font-size: 17px;
+    color: gray;
+  }
+  .profile-image{
+    width: 200px;
+    height: 200px;
+  }
+  .work-image{
+    width: 280px;
+    height: 180px;
+    box-shadow: none;
+    /* margin: 40px; */
+  }
+
+
+
+  /* モーダル　----------------------- */
+  .modal-box{
+    height: 80%;
+    width: 85%;
+    padding: 10px;
+    justify-content: normal;
+  }
+  .image-scroll-box {
+    height: 250px;
+  }
+  .image-scroll-box img{
+    width: 250px;
+    height: 170px;
+  }
+
+}

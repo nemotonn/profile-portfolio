@@ -1,0 +1,493 @@
+/* ベース */
+body{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+
+  background: #e9e4d4;
+  transition: background 2s;
+  margin: 0;
+  font-size: 16px;
+
+  font-family: "YuGothic", "Yu Gothic", "ヒラギノ角ゴシック","Verdana","Helvetica", sans-serif;
+
+  animation: fadeIn 2s ease 0s 1 normal;
+}
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+
+}
+
+article{
+  width: 100%;
+}
+
+section{
+
+  height: 100vh;
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+h1{
+  font-size: 30px;
+}
+
+footer p{
+  text-align: center;
+}
+
+/*PCナビ */
+header{
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  right: 0;
+
+}
+.pc-nav{
+  width: 100%;
+  margin: 0;
+  /* ulをcenterにするためflex指定でjustifi適用 */
+  display: flex;
+  justify-content: center;
+
+}
+.pc-nav ul{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  border-bottom: 1px solid #959692;
+  width: 70%;
+  margin-bottom: 0;
+  padding: 0;
+
+}
+.pc-nav li{
+  padding: 10px 30px;
+}
+.pc-nav a{
+  text-decoration: none;
+  color: #000;
+  padding: 8px 20px;
+}
+/* 現在のコンテンツを色つけるやつ */
+.active-link{
+
+  background: #fff;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+/* モバイルナビはPCではオフ */
+.mo-nav{
+  display: none;
+}
+
+
+/* スマホ・タブレット用ナビ　レスポンシブ */
+@media screen and (max-width: 1024px){
+  /* 959px以下の時はnav非表示 */
+  .pc-nav{
+    display: none !important;
+  }
+
+  /* モバイルナビ */
+  header{
+    height: 100%;
+    width: 100%;
+  }
+  .mo-nav{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: #fff;
+    /* opacity: 0.9; */
+
+    /* 右に寄せるためjustify使うにはflex指定 */
+    display: flex;
+    justify-content: flex-end;
+
+    transform: translateX(100%);
+    transition: 0.7s;
+
+    /* ハンバーガーの位置把握のため */
+    position: relative;
+
+  }
+  .mo-nav ul{
+    margin: 0px;
+    padding: 60px 10px;
+    list-style-type: none;
+    /* background: #fff; */
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  .mo-nav li{
+    padding: 10px 0;
+  }
+  .mo-nav a{
+    text-decoration: none;
+    color: #000;
+    padding: 5px 20px;
+    width: 100%;
+  }
+
+
+  .menuicon-outer{
+    margin: 10px;
+    /* navに重ねるため */
+    position: absolute;
+    top:0;
+    right: 0;
+  }
+  #menu-icon{
+    margin: 0;
+    right: 0;
+    display: flex;
+    flex-flow: column;
+    width: 40px;
+    height: 40px;
+    /* 子要素たちの位置設定は親で指定！(flexbox) */
+    justify-content: center;
+    align-items: center;
+
+  }
+  .icon-line{
+    border-top: 2px solid #000;
+    width: 28px;
+    height: 7px;
+  }
+
+  /* ハンバーガークリックでnavを出す toggle */
+  .nav-toggle{
+    transform: translateX(0);
+    transition: 0.7s;
+  }
+  .clickbox-toggle{
+    z-index: 0 !important;
+  }
+
+  /* タブレット　その他のレスポンシブ設定 */
+  /*
+  .profilebox-inner2{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text p{
+    margin: 5px;
+    text-align: center;
+  }
+  */
+
+
+  #target3{
+    height: auto !important;
+    padding-top: 48px;
+  }
+  .skill-bg{
+    height: auto !important;
+  }
+  .skillbox-inner{
+    display: flex;
+    flex-flow: column;
+    margin: 20px 0px !important;
+  }
+  .chart-container1, .chart-container2, .chart-container3 {
+    margin: 15px 0;
+    height: 300px !important;
+    width: 380px !important;
+  }
+  section{
+    padding-top: 12px;
+  }
+
+  .about-bg, .profile-bg, .work-bg{
+    height: 89% !important;
+  }
+
+
+}
+
+/* スマホ　レスポンシブ */
+@media screen and (max-width: 599px){
+  body{
+    font-size: 15px;
+  }
+
+  /* サイト説明 */
+  .about-box{
+    margin: 0 10px;
+  }
+  .about-box h1{
+    font-size: 20px;
+    margin: 0 0 1.2em 0;
+  }
+  .about-box p{
+    text-align: left;
+  }
+  /* プロフィール */
+  .profilebox-outer{
+    justify-content: center;
+  }
+  .profilebox-inner1 h1{
+    margin: 0 0 1.2em 0;
+    font-size: 20px;
+  }
+  /* 写真とtext flexbox */
+  .profilebox-inner2{
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .chart-container1, .chart-container2, .chart-container3 {
+    margin: 15px 0;
+    height: 220px !important;
+    width: 300px !important;
+  }
+
+
+  /*その他作品*/
+  .work-box h1{
+    margin: 0 0 1.2em 0;
+    font-size: 20px;
+  }
+
+}
+
+
+
+/*トップページ */
+.top-container{
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-container h1{
+  font-size: 50px;
+}
+.anime-box{
+  /* flexの高さ */
+  height: 10%;
+  display: flex;
+
+}
+#click-box1, #click-box2{
+  width: 80px;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin: 5px;
+  /* ヘッダーにかぶるため浮かせてる */
+  z-index: 2;
+
+
+  /* 中のp中央に寄せるため */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#click-box1:hover, #click-box2:hover{
+  background-color: #F0F0F0;
+  transition: background-color .5s;
+  opacity: 0.7;
+}
+
+.anime-box p{
+  font-size: 15px;
+}
+
+.arrow-box{
+  height: 20%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.arrow-box p{
+  /* z-index: 2; */
+  margin: 0;
+  font-size: 20px;
+}
+
+/* 矢印ふわふわ */
+.arrow{
+  /* 上左下右 */
+  margin: 5px;
+  border-top: solid 5px #000;
+  border-left: solid 5px #000;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg);
+
+}
+@keyframes fluffy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.arrow-fluffy{
+  /* ふわふわループ */
+  animation: 2s fluffy infinite;
+}
+
+
+/*各背景位置 */
+.about-bg, .profile-bg, .skill-bg, .work-bg{
+  background-color: #fff;
+  height: 83%;
+  width: 90%;
+  padding: 0;
+  border-radius:  30px 30px;
+}
+
+/* サイト説明中身 */
+.about-box{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.about-box h1{
+  flex-grow: 1;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+.about-text{
+  width: 70%;
+  flex-grow: 2;
+
+}
+.about-text p{
+  margin: 5px;
+
+}
+
+
+/* プロフィール中身 */
+.profilebox-outer{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+}
+.profilebox-inner1{
+  flex-grow: 1;
+}
+.profilebox-inner1 h1{
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.profilebox-inner2{
+  display: flex;
+  width: 70%;
+  flex-grow: 2;
+}
+img{
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+
+}
+.profile-text p{
+  margin: 5px;
+}
+
+/*スキル中身 */
+.skillbox-outer{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+}
+.skillbox-outer h1{
+
+}
+.skillbox-outer p{
+  margin: 5px;
+}
+.skillbox-inner{
+  display: flex;
+  margin: 15px 10px;
+
+
+}
+.chart-container1, .chart-container2, .chart-container3{
+  /* margin: 2px; */
+
+}
+
+/* その他リンク中身 */
+.work-box{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.work-box .box{
+  width: 300px;
+  height: 200px;
+  border: 1px solid #000;
+
+}
+
+
+
+
+.bubble{
+  position: fixed;
+  border-radius: 60px 20px 50px 30px/ 40px 30px 60px 50px;
+  background: #097366;
+  z-index: -99;
+  opacity: 0.2;
+  transition: background 2s;
+}
+
+/* アニメーション変化後のデザイン */
+.anime-bubble1{
+  background: #86B1FD;
+  /* transitionのみだと挙動おかしくなるので要素の指定で！ */
+  transition: background 2s;
+
+}
+.anime-body1{
+  background: #FCD880;　
+  transition: background 2s;
+
+
+}
+.anime-bubble2{
+  background: #FFF33D;
+  /* #FFFDA4; */
+  transition: background 2s;
+}
+.anime-body2{
+  background: #525D81;
+  /* #54649B; */
+  /* #5A6273; */
+  transition: background 2s;
+}

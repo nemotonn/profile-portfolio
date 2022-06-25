@@ -7,17 +7,13 @@ body{
 
   background: #FC997C;
   color: gray;
-
   position: relative;
-  /* transition: 1s; */
-
 }
+
 .body-wrapper{
   overflow: hidden;
 }
-
 footer{
-
   height: 40px;
   width: 100%;
   display: flex;
@@ -25,9 +21,7 @@ footer{
   align-items: center;
 
   -webkit-box-pack: center;
-
   -webkit-box-align: center;
-
 }
 
 
@@ -110,6 +104,9 @@ ul{
   list-style: none;
   padding: 0;
 }
+.nav-list li{
+  margin: 5px 0;
+}
 .nav-list a{
   text-decoration: none;
   font-size: 14px;
@@ -154,6 +151,7 @@ main{
   background: #fff;
   border-radius: 20px;
   font-size: 20px;
+  box-shadow: 0px 4px 7px 0px lightcoral;
 }
 .arrow-fluffy{
   margin: 15px 0;
@@ -191,23 +189,13 @@ main{
   z-index: -99;
   opacity: 0.2;
 
-  transition: background 1s;
+  transition: background 2s;
 }
 
 /* try it click アニメ */
-/* .bg-change{
-  background: #94B49F;
-  transition: 1s;
-} */
-.bg-change{
-  background: #94B49F;
-  -webkit-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
-}
 .title-color-change{
-  color: #D6D5A8;
-  transition: 1s;
+  color: #C5D7BD;
+  transition: 2s;
 
   animation-name: title-transform;
   animation-duration: 1.5s;
@@ -224,7 +212,7 @@ main{
   }
 }
 .bubble-color-change{
-  background: #E9D5CA;
+  background: #FFE300;
 }
 
 
@@ -356,6 +344,17 @@ main{
   width: 200px;
   height: 200px;
 }
+.profile-link-box{
+  margin-top: 10px;
+}
+.github-image{
+  height: 18px;
+  width: 18px;
+}
+.profile-link-box a{
+  text-decoration: none;
+  color: gray;
+}
 
 
 /* ~~~~~ 右　コンテンツレイアウト ~~~~~ */
@@ -382,12 +381,13 @@ main{
   align-items: center;
 }
 .career-index-box h3{
-  margin: 15px 0;
+  margin: 10px 0;
   font-size: 25px;
   color: #F66B0E;
 }
 .profile-career-box h4{
   font-size: 18px;
+  margin: 5px 0;
 }
 .profile-career-box p{
   margin: 8px 0;
@@ -401,9 +401,7 @@ main{
 
   position: absolute;
   left: -9px;
-
 }
-
 
 
 
@@ -492,7 +490,6 @@ main{
   margin: 5px 0;
   font-size: 13px;
   width: 100%;
-  /* opacity: 0; */
 }
 .chart-text-box p:last-child{
   text-align: right;
@@ -529,7 +526,6 @@ main{
     width: 0;
   }
 }
-
 
 
 
@@ -593,7 +589,6 @@ main{
 
 
 
-
 /* ワーク　モーダル　--------------------------------------------- */
 .modal-container{
   display: none;
@@ -648,28 +643,45 @@ main{
 .modal-body h2{
   margin: 8px 0;
   color: #F66B0E;
+  font-size: 25px;
+}
+.modal-body h3{
+  margin: 5px 0;
+  color: #F66B0E;
+  font-size: 20px;
 }
 .modal-body p{
   margin: 0;
   color: gray;
 }
+.modal-link-box{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.modal-link-box a{
+  text-decoration: none;
+  color: gray;
+  margin: 3px 0;
+}
+
 .image-scroll-box{
   display: flex;
   flex-direction: column;
   height: 400px;
   overflow-y: scroll;
+  padding: 0 15px;
+  align-items: flex-start;
 }
 .image-scroll-box img{
-  width: 350px;
-  height: 250px;
-  margin: 20px 40px;
+  width: 100%;
+  margin: 20px 0;
 }
 
 
 /* 部品 */
 .modal-close-button{
   height: 35px;
-  /* position: relative; */
   width: 30px;
   position: absolute;
   right: 5px;
@@ -715,20 +727,14 @@ main{
 }
 
 
-
-/* safari */
+/* safari対応 --------------------------------------------- */
 _:lang(x)+_:-webkit-full-screen-document, footer {
-
   align-items: center;
   height: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
-
-
-
 
 
 
@@ -741,19 +747,17 @@ _:lang(x)+_:-webkit-full-screen-document, footer {
   .mobile-nav, .mobile-nav-container{
     display: none;
   }
-  /* ****ちょいアニメーション　**** */
+  /* ****アニメーション　**** */
   .modal-button:hover{
     transform: translateY(-5px);
   }
-
-
 }
 
 
 /* 〜タブレット最大　以下 -------------------------------------------- */
 @media screen and (max-width: 1023px){
 
-
+  /* 大枠・共通 ------------------------------------ */
   .outer-wrapper, .wrapper{
     width: 100vw;
   }
@@ -868,17 +872,17 @@ _:lang(x)+_:-webkit-full-screen-document, footer {
     width: 15px;
     margin: 10px 0;
   }
-  .nav-icon-1{
+  .nav-icon-top{
     position: absolute;
     right: 5px;
     top: 0;
   }
-  .nav-icon-2{
+  .nav-icon-middle{
     position: absolute;
     right: 10px;
     top: 10px;
   }
-  .nav-icon-3{
+  .nav-icon-bottom{
     position: absolute;
     right: 5px;
     top: 20px;
@@ -978,6 +982,7 @@ _:lang(x)+_:-webkit-full-screen-document, footer {
 /* 〜スマホ最大 --------------------------------------------- */
 @media screen and (max-width: 599px){
 
+  /* 共通 */
   .skill-container, .work-container{
     height: auto;
   }
@@ -1020,7 +1025,7 @@ _:lang(x)+_:-webkit-full-screen-document, footer {
 
 
 
-  /* モーダル　----------------------- */
+  /* モーダル*/
   .modal-box{
     height: 80%;
     width: 85%;

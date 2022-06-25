@@ -1,3 +1,4 @@
+//最初のロード後アニメーション
 
 
 //ボーダースクロール
@@ -26,13 +27,13 @@ function borderScroll(e){
 
 //監視対象要素リスト
 const classLists = [
-  //アバウト
+  //about
   '.about-line-left',
   '.about-line-right',
   '.about-section-title',
   '.about-text-box p',
 
-  //プロフィール
+  //profile
   '.profile-section-title',
   '.profile-image',
   '.profile-text-box td',
@@ -48,17 +49,15 @@ const classLists = [
   '.chart-text-box p',
   '.chart-line',
 
-
   //work
   '.work-section-title',
   '.work-text-box p',
   '.work-image',
 
-  //ナビ
+  //nav
   '.observer-box',
   '.about-box', //モバイルナビbg入れるための監視
   '.main-container',　//モバイルナビbg入れるための監視
-
 
 
 ];
@@ -78,16 +77,15 @@ const borderOption = {
 //全てのelementをobserver生成と監視
 elements.forEach(e =>{
   e.forEach(element =>{
-
     const arr = ['about-line-left','about-line-right','round-icon','career-border','main-container','chart-line'];
-    if(arr.includes(element.className)){ //配列内で一致しているかtrue,false判定
+    if(arr.includes(element.className)){ //配列内で一致しているか真偽判定
       new IntersectionObserver(callBack,borderOption).observe(element);
     }else{
       new IntersectionObserver(callBack,option).observe(element);
     }
-
   })
 });
+
 
 //要素がエリアに入ったかチェックし各要素別に関数実行かその場で実行
 function callBack(entries){
@@ -162,9 +160,6 @@ function callBack(entries){
         const mobileNavBg = document.querySelector('.mobile-nav-container');
         mobileNavBg.classList.remove('mobile-nav-bg-in');
       }
-
-
-
 
 
     }

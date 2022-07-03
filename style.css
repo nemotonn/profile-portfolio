@@ -590,6 +590,7 @@ main{
 
 
 /* ワーク　モーダル　--------------------------------------------- */
+
 .modal-container{
   display: none;
   width: 100%;
@@ -951,7 +952,8 @@ _:lang(x)+_:-webkit-full-screen-document, footer {
   /* モーダル ------------------------------------　*/
 
   .modal-box{
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   .modal-body{
     flex-direction: column;
@@ -963,6 +965,7 @@ _:lang(x)+_:-webkit-full-screen-document, footer {
     width: 400px;
     height: 300px;
     overflow-x: scroll;
+    overflow-y: hidden;
     align-items: center;
   }
   .image-scroll-box img{
@@ -983,7 +986,7 @@ _:lang(x)+_:-webkit-full-screen-document, footer {
 @media screen and (max-width: 599px){
 
   /* 共通 */
-  .skill-container, .work-container{
+  .skill-container{
     height: auto;
   }
   .skill-box, .work-box{

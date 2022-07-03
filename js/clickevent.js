@@ -1,5 +1,4 @@
 
-
 //クリックイベント要素リスト
 const clickClassLists = [
   //トップ
@@ -8,10 +7,13 @@ const clickClassLists = [
   //モーダル
   '.modal-button',
   '.modal-close-button',
+  '.modal-container',
+
 
   //ナビ
   '.nav-icon-box',
   '.nav-close-button',
+  '.nav-list a',
 
 ];
 
@@ -42,13 +44,17 @@ clickElements.forEach(clickElement =>{
     //モーダル
     const modalContainer = document.querySelector('.modal-container');
 
+
     if(e.currentTarget.className == 'modal-button'){
       modalContainer.style.display = 'flex';
-      body.style.overflow = 'hidden';
+      //body.style.overflow = 'hidden';
+
     }
     if(e.currentTarget.className == 'modal-close-button'){
       modalContainer.style.display = 'none';
-      body.style.overflow = '';
+      //body.style.overflow = '';
+
+
     }
 
 
@@ -59,20 +65,36 @@ clickElements.forEach(clickElement =>{
 
     if(e.currentTarget.className == 'nav-icon-box'){
       mobileNavBox.classList.toggle('mobile-nav-toggle');
-      mobileNavContainer.classList.remove('mobile-nav-bg-in');
+      mobileNavContainer.classList.toggle('mobile-nav-bg-in');
       navIconBox.classList.toggle('nav-icon-box-toggle');
 
-      body.style.overflow = 'hidden';
+      //body.style.overflow = 'hidden';
     }
     if(e.currentTarget.className == 'nav-close-button'){
       mobileNavBox.classList.toggle('mobile-nav-toggle');
-      mobileNavContainer.classList.add('mobile-nav-bg-in');
+      mobileNavContainer.classList.toggle('mobile-nav-bg-in');
       navIconBox.classList.toggle('nav-icon-box-toggle');
 
-      body.style.overflow = '';
+      //body.style.overflow = '';
     }
 
 
   });
 
+});
+
+//navリンククリックで要素toggle
+const navLists = document.querySelectorAll('.nav-list a');
+navLists.forEach(link => {
+  link.addEventListener('click', e =>{
+
+    const mobileNavBox = document.querySelector('.mobile-nav-box');
+    const mobileNavContainer = document.querySelector('.mobile-nav-container');
+    const navIconBox = document.querySelector('.nav-icon-box');
+
+
+    mobileNavBox.classList.remove('mobile-nav-toggle');
+    mobileNavContainer.classList.toggle('mobile-nav-bg-in');
+    navIconBox.classList.toggle('nav-icon-box-toggle');
+  });
 });

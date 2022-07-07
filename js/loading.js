@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', e=>{
   mainArr.forEach(item =>{
     setTimeout(() =>{
       item.classList.add('text-in');
-      console.log(item);
+      
     }, 3000);
 
 

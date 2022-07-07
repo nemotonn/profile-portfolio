@@ -3,7 +3,7 @@
 
 //ボーダースクロール
 function borderScroll(e){
-  const careerBorder = document.querySelector('.career-border');
+  let careerBorder = document.querySelector('.career-border');
   const profileCareerBox = document.querySelector('.profile-career-box');
 
   const careerBox = profileCareerBox.getBoundingClientRect();
@@ -13,13 +13,15 @@ function borderScroll(e){
   const userScrollPosition = pageYOffset; //ユーザーがスクロールしてる現在位置
   const differenceSize = userScrollPosition - careerBoxTopPosition + 400;//スクロールした分
 
-  const percentage = Math.floor(differenceSize / careerBoxHeight * 100);
+  let percentage = Math.floor(differenceSize / careerBoxHeight * 100);
+
+  if(percentage >= 100){
+    window.removeEventListener('scroll', borderScroll);
+  }
 
   careerBorder.style.height = `${percentage}%`;
 
-  if(percentage > 100){
-    window.removeEventListener('scroll', borderScroll);
-  }
+
 
 };
 
@@ -79,10 +81,13 @@ elements.forEach(e =>{
   e.forEach(element =>{
     const arr = ['about-line-left','about-line-right','round-icon','career-border','main-container','chart-line'];
     if(arr.includes(element.className)){ //配列内で一致しているか真偽判定
-      new IntersectionObserver(callBack,borderOption).observe(element);
+      const observer = new IntersectionObserver(callBack,borderOption).observe(element);
+
     }else{
       new IntersectionObserver(callBack,option).observe(element);
     }
+
+
   })
 });
 
@@ -132,6 +137,7 @@ function callBack(entries){
       //profile
       if(element.className == 'career-border'){
         window.addEventListener('scroll', borderScroll);
+
       }
 
       //skill

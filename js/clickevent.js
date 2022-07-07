@@ -23,7 +23,6 @@ clickElements.forEach(clickElement =>{
   clickElement.addEventListener('click', e =>{
 
     //トップ
-    //const body = document.querySelector('body');
     const mainTitle = document.querySelector('.main-title');
     const bubbles = document.querySelectorAll('.bubble');
 
@@ -34,8 +33,6 @@ clickElements.forEach(clickElement =>{
         bubble.classList.toggle('bubble-color-change');
       });
 
-
-      //body.classList.toggle('bg-change');
       mainTitle.classList.toggle('title-color-change');
 
     }
